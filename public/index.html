@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Little Life Online — Prototype</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">L</span><div><strong>LITTLE LIFE</strong><small>ONLINE · PROTOTYPE 0.1</small></div></div>
+      <div class="world-status"><span class="live-dot"></span><span id="connection">Connecting…</span><span class="divider">|</span><span id="online-count">0 online</span></div>
+    </header>
+
+    <section class="game-layout">
+      <aside class="left-panel panel">
+        <div class="panel-title">YOUR LIFE</div>
+        <div class="profile">
+          <div class="avatar" id="my-avatar">✦</div>
+          <div><strong id="my-name">Newcomer</strong><small>Town resident</small></div>
+        </div>
+        <div class="stat"><div><span>Energy</span><b>85%</b></div><div class="bar"><i style="width:85%"></i></div></div>
+        <div class="stat"><div><span>Happiness</span><b>72%</b></div><div class="bar pink"><i style="width:72%"></i></div></div>
+        <div class="stat"><div><span>Money</span><b>$250</b></div></div>
+        <div class="panel-title section-title">QUICK MENU</div>
+        <button class="menu-button active">⌂ <span>Town</span></button>
+        <button class="menu-button" disabled>♡ <span>Relationships · soon</span></button>
+        <button class="menu-button" disabled>▣ <span>Inventory · soon</span></button>
+        <button class="menu-button" disabled>⌂ <span>My home · soon</span></button>
+        <div class="hint">Move with <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrow keys. Click the ground to walk.</div>
+      </aside>
+
+      <section class="world-wrap">
+        <div class="world-heading"><div><strong>MAPLE TOWN</strong><small>A little place to begin again.</small></div><div class="weather">☀ Sunny <span>·</span> 09:15 AM</div></div>
+        <div class="canvas-wrap">
+          <canvas id="world" aria-label="Isometric town game world"></canvas>
+          <div class="map-label label-cafe">☕ THE DAILY CUP</div>
+          <div class="map-label label-park">✿ MAPLE PARK</div>
+          <div class="map-label label-home">⌂ RESIDENCES</div>
+          <div class="controls-tip">WASD / Arrows · Click to move</div>
+        </div>
+        <div class="actionbar">
+          <button class="action active">↗ Move</button>
+          <button class="action" id="wave-button">♡ Wave</button>
+          <button class="action" disabled>＋ Interact · soon</button>
+          <span class="action-note" id="action-note">Say hello to someone in town.</span>
+        </div>
+      </section>
+
+      <aside class="right-panel panel">
+        <div class="panel-title">TOWN PEOPLE <span class="count" id="people-count">0</span></div>
+        <div id="people-list" class="people-list"><p class="muted">Waiting for residents…</p></div>
+        <div class="panel-title chat-title">TOWN CHAT</div>
+        <div id="chat-log" class="chat-log"><div class="system-message">Welcome to Maple Town. Be kind!</div></div>
+        <form id="chat-form" class="chat-form">
+          <input id="chat-input" maxlength="180" placeholder="Say something…" autocomplete="off">
+          <button aria-label="Send message">➤</button>
+        </form>
+      </aside>
+    </section>
+    <footer>Prototype only · Shared world is currently one test town · Progress is not saved yet</footer>
+  </main>
+
+  <dialog id="join-dialog" open>
+    <form method="dialog" id="join-form" class="join-card">
+      <div class="join-logo">L</div>
+      <p class="eyebrow">WELCOME TO MAPLE TOWN</p>
+      <h1>Your story starts here.</h1>
+      <p class="muted">Choose a name and step into a shared little world.</p>
+      <label for="name-input">Character name</label>
+      <input id="name-input" maxlength="18" placeholder="e.g. Alex" required>
+      <button class="primary" value="join">Enter town</button>
+      <small>Use a nickname. Do not enter personal information.</small>
+    </form>
+  </dialog>
+  <script src="/client.js"></script>
+</body>
+</html>
